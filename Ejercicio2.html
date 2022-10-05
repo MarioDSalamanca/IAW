@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin: 2%;
+                padding: 0%;
+            }
+            form {
+                border: 1px solid black;
+                padding: 1%;
+                width: 50%;
+            }
+            div {
+                border: 1px solid black;
+                padding: 1%;
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            function resultado() {
+                var pbase = parseInt(12000)          
+                var pdiesel = document.form1.motor[1]
+                var phibrido = document.form1.motor[2]
+
+                var ptrespuertas = document.form2.puerta[0]
+                var pfamiliar = document.form2.puerta[2]
+
+                var pblanco = document.form3.pintura[3]
+                var pnegro = document.form3.pintura[4]
+
+                var pmetalizada = document.form4.op[0]
+                var pllantas = document.form4.op[1]
+                var pclimatizador = document.form4.op[2]
+                var pgps = document.form4.op[3]
+                var pdvd = document.form4.op[4]
+
+                if (pdiesel.checked) {
+                    pbase = pbase + parseInt(1500)
+                }
+                if (phibrido.checked) {
+                    pbase = pbase + parseInt(3000)
+                }
+                if (document.form1.motor[0].checked) {
+                    if (ptrespuertas.checked) {
+                        pbase = pbase - parseInt(2000)
+                    }
+                }
+                if (pfamiliar.checked) {
+                    pbase = pbase + parseInt(1500)
+                    if (pdvd.checked) {
+                        pbase = pbase + parseInt(800)
+                    }
+                }
+                if (pblanco.checked) {
+                    pbase = pbase - parseInt(500)
+                }
+                if (pnegro.checked) {
+                    pbase = pbase - parseInt(600)
+                }
+                if (document.form3.pintura[0].checked || document.form3.pintura[1].checked
+                 || document.form3.pintura[2].checked) {
+                    if (pmetalizada.checked) {
+                        pbase = pbase + parseInt(750)
+                    }
+                }
+                if (pllantas.checked) {
+                    pbase = pbase + parseInt(200)
+                }
+                if (pclimatizador.checked) {
+                    pbase = pbase + parseInt(800)
+                }
+                if (pgps.checked) {
+                    pbase = pbase + parseInt(340)
+                }
+                document.getElementById("result").innerHTML=pbase
+            }
+
+        </script>
+        
+        <div>Configuración de tu Coche</div>
+        <form name="form1">Tipo de Motor <br>
+            <input type="radio" name="motor"/>Gasolina
+            <input type="radio" name="motor"/>Diesel(+1500€)
+            <input type="radio" name="motor"/>Híbrido(+3000€)
+        </form>
+        <form name="form2">Tipo de Puertas <br>
+            <input type="radio" name="puerta"/>3 Puertas(-2000€)(Solo con gasolina)
+            <input type="radio" name="puerta"/>5 Puertas
+            <input type="radio" name="puerta"/>Familiar(+1500€)
+        </form>
+        <form name="form3">Tipo de Pintura <br>
+            <input type="radio" name="pintura"/>Rojo
+            <input type="radio" name="pintura"/>Verde
+            <input type="radio" name="pintura"/>Naranja
+            <input type="radio" name="pintura"/>Blanco(-500€)
+            <input type="radio" name="pintura"/>Negro(-600€)
+        </form>
+        <form name="form4">Seleccionar las que se deseen: <br>
+            <input type="checkbox" name="op"/>Metalizada(+750€)(Solo Rojo, Verde o Naranja) <br>
+            <input type="checkbox" name="op"/>Llantas(+200€) <br>
+            <input type="checkbox" name="op"/>Climatizador(+800€) <br>
+            <input type="checkbox" name="op"/>GPS(+340€) <br>
+            <input type="checkbox" name="op"/>DVD(+800€)(Solo modelo Familiar)
+        </form>
+        <div>Total a Cobrar: <span id="result"></span>€<br>
+            <input type="button" value="Calcular" onclick="resultado()">
+        </div>
+    </body>
+</html>

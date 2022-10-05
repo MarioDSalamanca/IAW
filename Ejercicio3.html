@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0%;
+                padding: 0%;
+                font-size: 120%;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            form {
+                background-color: rgb(220, 208, 220);
+                margin: 2%;
+                padding: 1%;
+                padding-top: 0.1%;
+            }
+            input {
+                margin: 0.5%;
+            }
+            #correccion {
+                width: 25%;
+                height: 40px;
+                margin-left: 5%;
+                margin-bottom: 3%;
+                font-size: 100%;
+                background-color: black;
+                color: white;
+                margin-right: 2%;
+            }
+            span {
+                font-size: 120%;
+                font-weight:700;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            function corregir() {
+                var nota = parseInt(10)
+                if (!document.form1.preguno[1].checked) {
+                    nota = nota - parseInt(2)
+                }
+                if (!document.form2.pregdos[2].checked) {
+                    nota = nota - parseInt(2)
+                }
+                if (!document.form3.pregtres[0].checked || !document.form3.pregtres[3].checked) {
+                    nota = nota - parseInt(2)
+                }
+                if (!document.form4.pregcuatro[3].checked) {
+                    nota = nota - parseInt(2)
+                }
+                if (!document.form5.pregcinco[1].checked) {
+                    nota = nota - parseInt(2)
+                }
+                document.getElementById("notaf").innerHTML=("Su nota final es un: "+nota+"/10")
+            }
+        </script>
+
+        <form name="form1">
+            <p>¿Cuántas Champions tiene el Real Madrid?</p>
+            <input type="radio" name="preguno">A) 20 <br>
+            <input type="radio" name="preguno">B) 14 <br>
+            <input type="radio" name="preguno">C) 10 <br>
+            <input type="radio" name="preguno">D) 13 <br>
+            <input type="radio" name="preguno">E) Ninguna de las anteriores <br>
+        </form>
+        <form name="form2">
+            <p>¿Cuál es el máximo goleador de la historia del Real Madrid?</p>
+            <input type="radio" name="pregdos">A) Benzema <br>
+            <input type="radio" name="pregdos">B) Butragueño <br>
+            <input type="radio" name="pregdos">C) CR7 <br>
+            <input type="radio" name="pregdos">D) Raúl <br>
+            <input type="radio" name="pregdos">E) Ninguna de las anteriores <br>
+        </form>
+        <form name="form3">
+            <p>¿Qué equipos juegan en la C.Madrid?</p>
+            <input type="checkbox" name="pregtres">A) Real Madrid FC <br>
+            <input type="checkbox" name="pregtres">B) CF Cadiz <br>
+            <input type="checkbox" name="pregtres">C) FC Barcelona <br>
+            <input type="checkbox" name="pregtres">D) Leganés FC <br>
+            <input type="checkbox" name="pregtres">E) Ninguna de las anteriores <br>
+        </form>
+        <form name="form4">
+            <p>¿En qué año ganó la selección española su 1er Mundial?</p>
+            <input type="radio" name="pregcuatro">A) 2000 <br>
+            <input type="radio" name="pregcuatro">B) 2012 <br>
+            <input type="radio" name="pregcuatro">C) 2008 <br>
+            <input type="radio" name="pregcuatro">D) 2010 <br>
+            <input type="radio" name="pregcuatro">E) Ninguna de las anteriroes <br>
+        </form>
+        <form name="form5">
+            <p>¿Quién fué el capitán de la selección española en el Mundial de 2010?</p>
+            <input type="radio" name="pregcinco">A) Capdevila <br>
+            <input type="radio" name="pregcinco">B) San Iker <br>
+            <input type="radio" name="pregcinco">C) Iniesta <br>
+            <input type="radio" name="pregcinco">D) Sergio Ramos <br>
+            <input type="radio" name="pregcinco">E) Ninguna de las anteriores <br><br>
+        </form>
+        <input id="correccion" type="button" value="Enviar formulario" onclick="corregir()">
+        <span id="notaf"></span>
+    </body>
+</html>

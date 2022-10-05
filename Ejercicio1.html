@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div {
+                color: black;
+                background-color: rgb(255, 255, 255);
+                width: 30%;
+                height: 200px;
+                border: 2px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            function txt() {
+                var division = document.getElementById("Div")
+                var texto = prompt("Introduzca texto")
+                division.value=""
+                division.innerHTML=texto
+            }
+            function fondo() {
+                var division = document.getElementById("Div")
+                var color = prompt("Colores: Rojo/Azul/Verde/Negro")
+                if (color=="Rojo" || color=="rojo") {
+                    division.style.backgroundColor="red"
+                    division.style.color="black"
+                }
+                else if (color=="Azul" || color=="azul") {
+                    division.style.backgroundColor="blue"
+                    division.style.color="black"
+                }
+                else if (color=="Verde" || color=="verde") {
+                    division.style.backgroundColor="green"
+                    division.style.color="black"
+                }
+                else if (color=="Negro" || color=="negro") {
+                    division.style.backgroundColor="black"
+                    division.style.color="white"
+                }
+                else {
+                    alert("Elija entre los colores indicados")
+                }
+            }
+            function letra() {
+                var division = document.getElementById("Div")
+                var colorlet = prompt("Colores: Rojo/Azul/Verde/Negro")
+                var tipolet = prompt("Tipos de letras: Arial/Calibri/TNR/Verdana")
+                if (colorlet=="Rojo" || colorlet=="rojo") {
+                    division.style.color="red"
+                }
+                else if (colorlet=="Azul" || colorlet=="azul") {
+                    division.style.color="blue"
+                }
+                else if (colorlet=="Verde" || colorlet=="verde") {
+                    division.style.color="green"
+                }
+                else if (colorlet=="Negro" || colorlet=="negro") {
+                    division.style.backgroundColor="white"
+                    division.style.color="black"
+                }
+                if (tipolet=="Arial" || tipolet=="arial") {
+                    division.style.fontFamily="Arial"
+                }
+                else if (tipolet=="Calibri" || tipolet=="calibri") {
+                    division.style.fontFamily="Calibri"
+                }
+                else if (tipolet=="TNR" || tipolet=="tnr") {
+                    division.style.fontFamily="Times new roman"
+                }
+                else if (tipolet=="Verdana" || tipolet=="verdana") {
+                    division.style.fontFamily="Verdana"
+                }
+                else {
+                    alert("Elija entre los colores y tipos de fuentes indicados")
+                }
+            }
+        </script>
+    
+        <div id="Div">Este es el contenido de div1</div>
+        <input type="button" value="Cambiar texto" onclick="txt()"><br>
+        <input type="button" value="Cambiar color de fondo" onclick="fondo()"><br>
+        <input type="button" value="Cambiar tipo y color de letra" onclick="letra()">
+    </body>
+</html>

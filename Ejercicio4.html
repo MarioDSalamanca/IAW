@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0%;
+                padding: 0%;
+                margin-left: 3%;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            p {
+                width: 19.5%;
+                padding: 0.2%;
+                background-color: orange;
+                font-size: 160%;
+                color: blue;
+                font-family: 'Times New Roman', Times, serif;
+                margin-bottom: 0.2%;
+            }
+            table {
+                width: 27%;
+                background-color: yellow;
+                padding: 0.5%;
+                border: 3px solid black;
+            }
+            .textos {
+                text-align: center;
+                font-size: 120%;
+            }
+            .botones {
+                margin-top: 1%;
+                margin-left: 0%;
+            }
+            #env {
+                width: 5%;
+                height: 35px;
+                font-size: 130%;
+                text-decoration: underline;
+                color: blue;
+                border: 0px;
+                background-color: white;
+                padding-right: 0%;
+            }
+            #bor {
+                width: 5%;
+                height: 35px;
+                font-size: 130%;
+                text-decoration: underline;
+                color: blue;
+                border: 0px;
+                background-color: white;
+                padding-left: 0%;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            function envio() {
+                var nombre=document.getElementById("nombre").value.length
+                var apuno=document.getElementById("apuno").value.length
+                var apdos=document.getElementById("apdos").value.length
+                var correo=document.getElementById("correo").value
+                var numuno=document.getElementById("numuno").value.length
+                var numdos=document.getElementById("numdos").value.length
+
+                if (nombre < 1 || apuno < 1 || apdos < 1) {
+                    alert("Debes indicar tu nombre y apellidos")
+                }
+                if (correo.indexOf("@")==-1) {
+                    alert("El correo no es válido")
+                    document.getElementById("correo").value=""
+                }
+                if (numuno != 7) {
+                    alert("El nº1 de la SS debe contener 7 dígitos")
+                    document.getElementById("numuno").value=""
+                }
+                if (numdos < 1 || numdos > 2) {
+                    alert("El nº2 de la SS debe contener 1 o 2 dígitos")
+                    document.getElementById("numdos").value=""
+                }
+            }
+            function borrado() {
+                document.getElementById("nombre").value=""
+                document.getElementById("correo").value=""
+                document.getElementById("numuno").value=""
+                document.getElementById("numdos").value=""
+                document.getElementById("apuno").value=""
+                document.getElementById("apdos").value=""
+            }
+        </script>
+        
+        <p>Solicitud de Informe de Vida Laboral</p>
+        <table>
+            <tr>
+                <td class="textos">
+                    Nombre:
+                </td>
+                <td>
+                    <input type="text" id="nombre">
+                </td>
+            <tr>
+                <td class="textos">
+                    Primer Apellido:
+                </td>
+                <td>
+                    <input type="text" id="apuno">
+                </td>
+            </tr>
+            <tr>
+                <td class="textos">
+                    Segundo Apellido:
+                </td>
+                <td>
+                    <input type="text" id="apdos">
+                </td>
+            </tr>
+            <tr>
+                <td class="textos">
+                    Correo Electrónico:
+                </td>
+                <td>
+                    <input type="text" id="correo">
+                </td>
+            </tr>
+            <tr>
+                <td class="textos">
+                    Nº de afiliado a la S.S.:
+                </td>
+                <td>
+                    <select id="provinvia">
+                        <option value="op">A CORUÑA</option>
+                        <option value="op">MADRID</option>
+                        <option value="op">BARCELONA</option>
+                        <option value="op">SALAMANCA</option>
+                    </select>
+                    /
+                    <input type="text" id="numuno" size="6">
+                    /
+                    <input type="text" id="numdos" size="2">
+                </td>
+            </tr>
+        </table>
+        <div class="botones">
+            <input type="button" value="Enviar" id="env" onclick="envio()">
+            <input type="button" value="Borrar" id="bor" onclick="borrado()">
+        </div>
+    </body>
+</html>
